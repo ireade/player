@@ -1,0 +1,96 @@
+/* ------------------------------------
+		TYPE and VARIABLES
+--------------------------------------- */
+
+
+$light-grey: rgb(209, 209, 209);
+$med-grey: rgb(104, 104, 104);
+$dark-grey: rgb(50, 50, 50);
+
+
+
+@mixin media($size) {
+	@if $size == 'small' {
+		@media screen and (max-width: 600px) {@content};
+	}
+
+	@if $size == 'large' {
+		@media screen and (min-width: 600px) {@content};
+	}
+}
+
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-size: 1.2rem;
+	font-family: 'Avenir';
+	line-height: 1.2;
+}
+
+
+h1 {
+	font-size: 1.4rem;
+	font-weight: 700;
+	display: inline-block;
+}
+
+h2 {
+	font-weight: 600; 
+	display: inline-block;
+}
+
+
+h3 {
+	font-weight: 700;
+
+	@include media(large) {
+		color: $dark-grey
+	}
+
+	@include media(small) {
+		color: $light-grey;
+	}
+}
+
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+
+button {
+	font-weight: 600;
+	cursor: pointer;
+}
+
+
+
+/* Z Index */
+
+.main {
+	z-index: 1;
+}
+
+.controls,
+.show-more,
+nav {
+	z-index: 2;
+}
+
+
+/* */
+
+.dbl {
+	display: block;
+	margin-bottom: 1rem;
+}
+
+
+/* */
+
+
+

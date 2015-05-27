@@ -1,0 +1,102 @@
+/*
+	Styles for the content nav sections
+*/
+
+
+/* Playlist */
+
+#playlist-content {
+
+	// display: block;
+	overflow-y: scroll;
+
+	@include media(large) {
+		width: 300px;
+	}
+
+
+
+	li.playlist-item {
+		padding: 15px 25px 15px 0;
+		border-top: 1px solid $med-grey;
+		position: relative;
+
+		button {
+			position: absolute;
+			right: 0;
+			top: 10px;
+		}
+	}
+
+	li.playlist-item:first-child {
+		padding-top: 0;
+		border-top: 0;
+	}
+
+}
+
+button.play {
+	border: 0;
+	background-color: transparent;
+
+}
+
+button.play.small {
+	font-size: 2rem;
+	line-height: 1;
+}
+
+
+
+/* Volume */
+
+
+
+
+/* Settings */
+
+#settings-content {
+
+	@include media(large) {
+		width: 160px;
+		height: 100px;
+	}
+
+}
+
+/* Share */
+
+
+#share-content {
+
+	@include media(large) {
+		width: 340px;
+		height: auto;
+
+	}
+
+}
+
+button.share-btn {
+	min-width: 100px;
+	height: 35px;
+	line-height: 35px;
+	padding: 0 10px;
+	margin: 0 15px 15px 0;
+	border-radius: 5px;
+	border: 0px;
+	color: $light-grey;
+}
+
+.share-btn.twitter {
+	background-color: #4099FF;
+}
+
+.share-btn.facebook {
+	background-color: #3b5998;
+}
+
+
+
+
+

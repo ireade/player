@@ -1,0 +1,331 @@
+/*
+Prostream Player File
+*/
+/* -------------------------------------------------
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+--------------------------------------------------- */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* Box sizing reset 
+   Thanks to Paul Irish
+   http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+/* ------------------------------------
+		TYPE and VARIABLES
+--------------------------------------- */
+html {
+  font-size: 62.5%; }
+
+body {
+  font-size: 1.2rem;
+  font-family: 'Avenir';
+  line-height: 1.2; }
+
+h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: inline-block; }
+
+h2 {
+  font-weight: 600;
+  display: inline-block; }
+
+h3 {
+  font-weight: 700; }
+  @media screen and (min-width: 600px) {
+    h3 {
+      color: #323232; } }
+  @media screen and (max-width: 600px) {
+    h3 {
+      color: #d1d1d1; } }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+button {
+  font-weight: 600;
+  cursor: pointer; }
+
+/* Z Index */
+.main {
+  z-index: 1; }
+
+.controls, .show-more, nav {
+  z-index: 2; }
+
+/* */
+.dbl {
+  display: block;
+  margin-bottom: 1rem; }
+
+/* */
+/*
+	Layout
+*/
+#player {
+  background-color: #323232;
+  color: #d1d1d1;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  transition: bottom 1s; }
+  @media screen and (min-width: 600px) {
+    #player {
+      height: 85px;
+      bottom: 0; } }
+  @media screen and (max-width: 600px) {
+    #player {
+      height: 60px;
+      bottom: 0; } }
+
+.controls, .main, nav, .show-more {
+  position: absolute;
+  height: 100%; }
+
+/* Pause and Play Controls */
+@media screen and (min-width: 600px) {
+  .controls {
+    width: 120px;
+    padding: 28px 0;
+    text-align: center; } }
+@media screen and (max-width: 600px) {
+  .controls {
+    width: 20%;
+    padding: 12px 20px; }
+    .controls #icon-forward, .controls #icon-backward {
+      display: none; } }
+.controls svg {
+  vertical-align: middle; }
+.controls #icon-play {
+  margin: 0 10px; }
+
+/* Icon Nav and Show More Icon */
+.show-more {
+  right: 0; }
+  @media screen and (min-width: 600px) {
+    .show-more {
+      display: none; } }
+  @media screen and (max-width: 600px) {
+    .show-more {
+      display: block;
+      width: 20%;
+      padding: 12px 20px;
+      text-align: right; } }
+  .show-more div {
+    cursor: pointer;
+    font-size: 3.5rem; }
+  .show-more .less {
+    display: none; }
+
+nav {
+  right: 0; }
+  @media screen and (min-width: 600px) {
+    nav {
+      width: 280px;
+      text-align: right; } }
+  @media screen and (max-width: 600px) {
+    nav {
+      display: block;
+      width: 100%;
+      height: 80px;
+      top: 140px;
+      /* 200px minus height of 60px */
+      text-align: center; } }
+
+.icon {
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  vertical-align: top; }
+  @media screen and (min-width: 600px) {
+    .icon {
+      width: 65px;
+      height: 100%;
+      padding-top: 30px; } }
+  @media screen and (max-width: 600px) {
+    .icon {
+      width: 25%;
+      height: 80px;
+      padding-top: 20px;
+      cursor: pointer;
+      margin: 0 auto; } }
+  .icon svg g {
+    fill: #d1d1d1; }
+  .icon h3 {
+    margin-top: 1rem; }
+  .icon .nav-more {
+    display: none;
+    bottom: 0;
+    background-color: #d1d1d1;
+    color: #686868;
+    padding: 20px;
+    text-align: left; }
+    @media screen and (min-width: 600px) {
+      .icon .nav-more {
+        position: absolute;
+        right: 0;
+        min-width: 100%;
+        margin-bottom: 85px;
+        height: 200px; } }
+    @media screen and (max-width: 600px) {
+      .icon .nav-more {
+        position: fixed;
+        width: 100vw;
+        height: 140px;
+        bottom: 80px;
+        left: 0; } }
+
+@media screen and (min-width: 600px) {
+  .icon:hover {
+    background-color: #d1d1d1;
+    color: #323232; }
+    .icon:hover svg g {
+      fill: #686868; }
+    .icon:hover h3 {
+      color: #323232; }
+  .icon:hover .nav-more {
+    display: block; } }
+
+@media screen and (max-width: 600px) {
+  .icon:hover, .icon.active {
+    background-color: #d1d1d1;
+    color: #323232; }
+    .icon:hover svg g, .icon.active svg g {
+      fill: #686868; }
+    .icon:hover h3, .icon.active h3 {
+      color: #323232; }
+  .icon.active .nav-more {
+    display: block; } }
+
+/* Main Section */
+.main {
+  width: 100%;
+  background-color: #323232; }
+  @media screen and (min-width: 600px) {
+    .main {
+      padding: 15px 390px 10px 20px;
+      left: 120px; } }
+  @media screen and (max-width: 600px) {
+    .main {
+      padding: 0 20px;
+      height: 220px; } }
+  @media screen and (min-width: 600px) {
+    .main hgroup {
+      margin-bottom: 1rem; }
+      .main hgroup span {
+        display: inline-block; } }
+  @media screen and (max-width: 600px) {
+    .main hgroup {
+      margin-bottom: 4rem;
+      height: 60px;
+      text-align: center;
+      padding: 12px; }
+      .main hgroup h1 {
+        display: block; }
+      .main hgroup span {
+        display: none; } }
+  .main .progress-bar {
+    width: 100%;
+    background-color: #d1d1d1;
+    height: 5px;
+    position: relative; }
+    .main .progress-bar .timer {
+      position: absolute;
+      top: 10px; }
+    .main .progress-bar .start-time {
+      left: 0; }
+    .main .progress-bar .end-time {
+      right: 0; }
+
+/*
+	Styles for the content nav sections
+*/
+/* Playlist */
+#playlist-content {
+  overflow-y: scroll; }
+  @media screen and (min-width: 600px) {
+    #playlist-content {
+      width: 300px; } }
+  #playlist-content li.playlist-item {
+    padding: 15px 25px 15px 0;
+    border-top: 1px solid #686868;
+    position: relative; }
+    #playlist-content li.playlist-item button {
+      position: absolute;
+      right: 0;
+      top: 10px; }
+  #playlist-content li.playlist-item:first-child {
+    padding-top: 0;
+    border-top: 0; }
+
+button.play {
+  border: 0;
+  background-color: transparent; }
+
+button.play.small {
+  font-size: 2rem;
+  line-height: 1; }
+
+/* Volume */
+/* Settings */
+@media screen and (min-width: 600px) {
+  #settings-content {
+    width: 160px;
+    height: 100px; } }
+
+/* Share */
+@media screen and (min-width: 600px) {
+  #share-content {
+    width: 340px;
+    height: auto; } }
+
+button.share-btn {
+  min-width: 100px;
+  height: 35px;
+  line-height: 35px;
+  padding: 0 10px;
+  margin: 0 15px 15px 0;
+  border-radius: 5px;
+  border: 0px;
+  color: #d1d1d1; }
+
+.share-btn.twitter {
+  background-color: #4099FF; }
+
+.share-btn.facebook {
+  background-color: #3b5998; }

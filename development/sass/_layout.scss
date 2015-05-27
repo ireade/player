@@ -1,0 +1,307 @@
+/*
+	Layout
+*/
+
+
+#player {
+	
+	background-color: $dark-grey;
+	color: $light-grey;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+
+	
+	transition: bottom 1s;
+	
+
+	@include media(large) {
+		height: 85px;
+		bottom: 0;
+	}
+
+	@include media(small) {
+		height: 60px;
+		bottom: 0;
+	}
+	
+}
+
+.controls,
+.main,
+nav,
+.show-more {
+	position: absolute;
+	height: 100%;
+}
+
+
+/* Pause and Play Controls */
+
+.controls {
+
+	@include media(large) {
+		width: 120px;
+		padding: 28px 0;
+		text-align: center;
+	}
+
+	@include media(small) {
+		width: 20%;
+		padding: 12px 20px;
+
+		#icon-forward,
+		#icon-backward {
+			display: none;;
+		}
+	}
+
+	svg {
+		vertical-align: middle;
+	}
+
+	#icon-play {
+		margin: 0 10px;
+	}
+
+	
+}
+
+
+/* Icon Nav and Show More Icon */
+
+.show-more {
+	right: 0;
+
+	@include media(large) {
+		display: none;
+	}
+
+	@include media(small) {
+		display: block;
+		width: 20%;
+		padding: 12px 20px;
+		text-align: right;
+	}
+
+	div {
+		cursor: pointer;
+		font-size: 3.5rem;
+	}
+
+	.less {
+		display: none;
+	}
+
+}
+
+nav {
+	right: 0;
+	
+	@include media(large) {
+		width: 280px;
+		text-align: right;
+	}
+	
+
+	@include media(small) {
+		display: block;
+		width: 100%;
+		height: 80px;
+		top: 140px; /* 200px minus height of 60px */
+		text-align: center;
+
+
+	}
+
+}
+
+.icon {
+	display: inline-block;
+	text-align: center;
+	position: relative;
+	vertical-align: top;
+
+	@include media(large) {
+		width: 65px;
+		height: 100%;
+		padding-top: 30px;
+
+	}
+
+	@include media(small) {
+		width: 25%;
+		//max-width: 80px;
+		height: 80px;
+		padding-top: 20px;
+
+		cursor: pointer;
+
+
+		margin: 0 auto;
+	}
+
+
+
+	svg g {
+		fill: $light-grey;
+	}
+
+	h3 {
+		margin-top: 1rem;
+	}
+
+
+
+	.nav-more {
+		display: none;
+		bottom: 0;
+		background-color: $light-grey;
+		color: $med-grey;
+		padding: 20px;
+		text-align: left;
+
+		@include media(large) {
+			position: absolute;
+			right: 0;
+			min-width: 100%;
+			margin-bottom: 85px;
+			height: 200px;
+
+		}
+
+		@include media(small) {
+			position: fixed;
+			width: 100vw;
+			height: 140px;
+			bottom: 80px;
+			left: 0;
+
+		}
+
+
+	}
+}
+
+
+
+@include media(large) {
+
+	.icon:hover {
+		background-color: $light-grey;
+		color: $dark-grey;
+
+		svg g {
+			fill: $med-grey;
+		}
+
+		h3 {
+			color: $dark-grey;
+		}
+	}
+	.icon:hover .nav-more {
+		display: block;
+	}
+
+}
+
+@include media(small) {
+	
+	.icon:hover,
+	.icon.active {
+		background-color: $light-grey;
+		color: $dark-grey;
+
+		svg g {
+			fill: $med-grey;
+		}
+
+		h3 {
+			color: $dark-grey;
+		}
+	}
+	.icon.active .nav-more {
+		display: block;
+	}
+
+}
+
+
+
+
+/* Main Section */
+
+
+.main {
+	
+	width: 100%;
+	background-color: $dark-grey;
+
+	@include media(large) {
+		
+		padding: 15px 390px 10px 20px;
+		left: 120px;
+	}
+
+	@include media(small) {
+
+		padding: 0 20px;
+		height: 220px;
+
+		//border: 2px solid red;
+
+	}
+
+
+	hgroup {
+
+		@include media(large) {
+			margin-bottom: 1rem;
+
+			span {
+				display: inline-block;
+			}
+		}
+
+		@include media(small) {
+			margin-bottom: 4rem;
+			height: 60px;
+			text-align: center;
+			padding: 12px;
+
+			h1 {
+				display: block;
+			}
+
+			span {
+				display: none;
+			}
+		}
+
+	}
+
+	.progress-bar {
+		width: 100%;
+		background-color: $light-grey;
+		height: 5px;
+		position: relative;
+
+
+		.timer {
+			position: absolute;
+			top: 10px;
+		}
+
+		.start-time {
+			left: 0;
+		}
+
+		.end-time {
+			right: 0;
+		}
+	}
+	
+}
+
+
