@@ -16,18 +16,20 @@ $(document).ready(function() {
 	})
 
 
+	$('.clickable-area').on('click', function() {
 
-	$('.icon').on('click', function() {
+		var parent = $(this).parent('.icon'); 
 
+		if ( parent.hasClass('active') ) {
 
-		if ( $(this).hasClass('active') ) {
-			$(this).removeClass('active');
+			parent.removeClass('active');
+
 		} else {
 			$('.icon').removeClass('active');
-			$(this).addClass('active');
+			parent.addClass('active');
 		}
 
-		
-	})
+	}) 
+
 
 });

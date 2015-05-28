@@ -184,6 +184,12 @@ nav {
       padding-top: 20px;
       cursor: pointer;
       margin: 0 auto; } }
+  .icon .clickable-area {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 80px;
+    bottom: 0; }
   .icon svg g {
     fill: #d1d1d1; }
   .icon h3 {
@@ -208,7 +214,8 @@ nav {
         width: 100vw;
         height: 140px;
         bottom: 80px;
-        left: 0; } }
+        left: 0;
+        cursor: default; } }
 
 @media screen and (min-width: 600px) {
   .icon:hover {
